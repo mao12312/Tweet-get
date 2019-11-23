@@ -16,7 +16,6 @@ AS = "2pNjWk8XK1eVioyQkTeY2EPoVARqTCv334jmvlro1H8gT"
 
 session = OAuth1Session(CK, CS, AT, AS)
 
-
 def screen_name_list(file):
     # open and read file
     f = open(file, "r", encoding="utf-8").read()

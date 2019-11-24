@@ -2,17 +2,18 @@ import json
 import sys
 import glob
 import os
+import key
 
 from requests_oauthlib import OAuth1Session
 
 # Consumer Key
-CK = "EtzGyi1wh5vl67tRtIhKq9i89"
+CK = key.twkey['CK']
 # Consumer Secret
-CS = "mTMg8oir9DUIMsMiTDGoIiqs3clzVkdUFPnKkkibc7Y2zqlu7j"
+CS = key.twkey['CS']
 # Access Token
-AT = "1010784914445221895-UI2wFlCMck5CzXFzXMvR8pEMTgtK2s"
+AT = key.twkey['AT']
 # Accesss Token Secert
-AS = "2pNjWk8XK1eVioyQkTeY2EPoVARqTCv334jmvlro1H8gT"
+AS = key.twkey['AS']
 
 session = OAuth1Session(CK, CS, AT, AS)
 

@@ -17,6 +17,7 @@ AS = key.twkey['AS']
 
 session = OAuth1Session(CK, CS, AT, AS)
 
+
 def screen_name_list(file):
     # open and read file
     f = open(file, "r", encoding="utf-8").read()

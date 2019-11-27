@@ -35,28 +35,28 @@ os.makedirs("data", exist_ok=True)
 # get tweet-data
 for train in train_list:
     # run screen_name_list
-    screen_name = screen_name_list(train)
-    # set Api URL for getting users timeline
-    url = 'https://api.twitter.com/1.1/statuses/user_timeline.json'
+    screen_names = screen_name_list(train)
+    for screen_name in screen_names:
+        # set Api URL for getting users timeline
+        url = 'https://api.twitter.com/1.1/statuses/user_timeline.json'
+        # set number of tweets to retrieve at one time
+        params = {"screen": screen_name, "count": 100}
+        # access Twitter Api and read data
+        response = session.get(url, params=params)
+        response_text = json.loads(response.text)
 
-    # set number of tweets to retrieve at one time
-    params = {"screen": screen_name, "count": 100}
-    # access Twitter Api and read data
-    response = session.get(url, params=params)
-    response_text = json.loads(response.text)
+        # Prepare a list to store data read from Twitter API
+        texts = []
 
-    # Prepare a list to store data read from Twitter API
-    texts = []
+        # tweet data append array (texts)
+        for data in response_text:
+            texts.append(data['text'])
 
-    # tweet data append array (texts)
-    for data in response_text:
-        texts.append(data['text'])
+        # rename list directory
+        data_name = str(train).replace('list', 'data', 1)
 
-    # rename list directory
-    data_name = str(train).replace('list', 'data', 1)
-
-    # open the file to write tweet-data
-    with open(data_name, "a") as f:
-        for text in texts:
-            # ツイートのテキストを書き込む
-            f.write(str(text) + "\n")
+        # open the file to write tweet-data
+        with open(data_name, "a") as f:
+            for text in texts:
+                # ツイートのテキストを書き込む
+                f.write(str(text) + "\n")

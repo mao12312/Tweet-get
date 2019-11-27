@@ -32,30 +32,64 @@ train_list = glob.glob('list/*.txt')
 # exist_ok=True: same file already exists does not cause an error
 os.makedirs("data", exist_ok=True)
 
-# get tweet-data
+# # get tweet-data
+# for train in train_list:
+#     # run screen_name_list
+#     screen_names = screen_name_list(train)
+#     for screen_name in screen_names:
+#         # set Api URL for getting users timeline
+#         url = 'https://api.twitter.com/1.1/statuses/user_timeline.json'
+#         # set number of tweets to retrieve at one time
+#         params = {"screen": screen_name, "count": 100}
+#         # access Twitter Api and read data
+#         response = session.get(url, params=params)
+#         response_text = json.loads(response.text)
+
+#         # Prepare a list to store data read from Twitter API
+#         texts = []
+
+#         # tweet data append array (texts)
+#         for data in response_text:
+#             texts.append(data['text'])
+
+#         # rename list directory
+#         data_name = str(train).replace('list', 'data', 1)
+
+#         # open the file to write tweet-data
+#         with open(data_name, "a") as f:
+#             for text in texts:
+#                 # ツイートのテキストを書き込む
+#                 f.write(str(text) + "\n")
+
+# メンヘラ・非メンヘラリストを順番に呼び出す
 for train in train_list:
-    # run screen_name_list
+    # 先ほど作成したscreen_name_list関数を実行
     screen_names = screen_name_list(train)
+
+    # パラメータ（スクリーンネーム、1回に取得するツイートの件数）を設定し、ツイートを取得する
     for screen_name in screen_names:
-        # set Api URL for getting users timeline
+
+        # ユーザーのタイムラインを取得するTwitter　APIのURLを設定する
         url = 'https://api.twitter.com/1.1/statuses/user_timeline.json'
-        # set number of tweets to retrieve at one time
-        params = {"screen": screen_name, "count": 100}
-        # access Twitter Api and read data
+
+        # パラメータ（スクリーンネーム、1回に取得するツイートの件数）を設定する
+        params = {'screen_name': screen_name, 'count': 200}
+
+        # Twitter APIにアクセスし、データを読み込む
         response = session.get(url, params=params)
         response_text = json.loads(response.text)
 
-        # Prepare a list to store data read from Twitter API
+        # Twitter APIから読み込んだデータを格納するリストを用意
         texts = []
 
-        # tweet data append array (texts)
+        # 読み込んだデータの中からツイートのテキスト部分に該当するものをtextsに格納する
         for data in response_text:
             texts.append(data['text'])
 
-        # rename list directory
+        # メンヘラ・非メンヘラのツイートデータを保存するために、リストディレクトリ名を書き換える
         data_name = str(train).replace('list', 'data', 1)
 
-        # open the file to write tweet-data
+        # ツイートデータを保存するファイルを開く
         with open(data_name, "a") as f:
             for text in texts:
                 # ツイートのテキストを書き込む

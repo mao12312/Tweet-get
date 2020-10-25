@@ -40,7 +40,7 @@ for train in train_list:
         # set Api URL for getting users timeline
         url = 'https://api.twitter.com/1.1/statuses/user_timeline.json'
         # set number of tweets to retrieve at one time
-        params = {"screen_name": screen_name, "count": 100}
+        params = {"screen_name": screen_name, "count": 500}
         # access Twitter Api and read data
         response = session.get(url, params=params)
         response_text = json.loads(response.text)

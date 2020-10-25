@@ -1,3 +1,15 @@
+某東◯経済のオンライン登録メールマガジンの受信選択欄「受信する」のラジオボタンしかなくて、変だなと思ってたら「受信しない」のhtml要素にstyle="display: none;"かかっててなんとも言えない気持ちになった... https://t.co/OlAcHCOpJa
+#linedevday_report
+
+https://t.co/9GOGBmI3XV
+RT @codomisu: 【ご報告📝】
+久しぶりの投稿でいきなりですが、来年4月からDeNAで働かせて頂けることになりました :D
+同期でアドベントカレンダーやるということになったのでその宣伝も兼ねて...。
+僕は今日が担当で、個人開発がテーマの記事を書きました。良かったら読…
+https://t.co/cNDyGCoWGp #Qiita
+AI-ENGINEERINGさんで開催された『G's CAMP OSAKA』にチューターとして参加させていただきました！皆さんやる気のある方ばかりで、自分なりに考え•実装をされていてとても素晴らしかったです。私自身も他人に教えると… https://t.co/mLfixgu6kl
+来た！
+#lmc1201 https://t.co/sfKkWiErlw
 5大IT企業の収益構造をグラフ化したサイト
 googleとfacebookは似たような広告事業メインの収益モデルですね。
 Microsoftはとてもバランスがいいですね。いずれかの分野が崩れても致命的なものにはならない盤石感があり… https://t.co/GQSsOmqXpG
